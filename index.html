@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>张宇 · 个人作品集</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#b48bd0',
+          secondary: '#d4b8e6',
+          accent: '#e9c5d8',
+          light: '#f8f1fa',
+          dark: '#7d6496',
+          text: '#4a4458'
+        },
+        fontFamily: {
+          serif: ['"Playfair Display"', '"Noto Serif SC"', 'Georgia', 'serif'],
+          sans: ['"Noto Sans SC"', 'system-ui', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+  * { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: linear-gradient(120deg, #fdf8fc, #f8f1fa, #f3e8f5, #f0e4f2, #fdf8fc);
+    background-size: 200% 200%;
+    animation: gradientFlow 18s ease infinite;
+    color: #4a4458;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .title-art {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif;
+    letter-spacing: 0.04em;
+  }
+
+  .chinese-art {
+    font-family: 'Noto Serif SC', serif;
+    letter-spacing: 0.08em;
+  }
+
+  .quote {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 500;
+    color: #7d6496;
+    letter-spacing: 0.05em;
+  }
+
+  .cursor-glow {
+    position: fixed;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 184, 230, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    transition: left 0.12s ease-out, top 0.12s ease-out;
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(180, 139, 208, 0.12);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(180, 139, 208, 0.18);
+  }
+
+  .img-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(180, 139, 208, 0.18);
+    transition: all 0.5s ease;
+  }
+  .img-card:hover {
+    transform: translateY(-4px) scale(1.015);
+  }
+  .img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .img-card:hover img {
+    transform: scale(1.06);
+  }
+
+  .tag {
+    background: #f8f1fa;
+    color: #b48bd0;
+    border: 1px solid rgba(180, 139, 208, 0.25);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  .tag:hover {
+    background: #b48bd0;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .tag-appear {
+    opacity: 0;
+    transform: scale(0.85);
+    transition: all 0.45s ease;
+  }
+  .tag-appear.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #b48bd0, #d4b8e6);
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(180, 139, 208, 0.35);
+    transition: all 0.4s ease;
+    display: inline-block;
+    font-size: 14px;
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(180, 139, 208, 0.45);
+  }
+
+  .btn-ghost {
+    border: 1px solid #b48bd0;
+    color: #7d6496;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-weight: 500;
+    transition: all 0.4s ease;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+  }
+  .btn-ghost:hover {
+    background: #b48bd0;
+    color: #fff;
+    transform: translateY(-3px);
+  }
+
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif;
+    color: #7d6496;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    position: relative;
+    display: inline-block;
+  }
+  .section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #b48bd0, #e9c5d8);
+    border-radius: 2px;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #b48bd0;
+  }
+
+  .divider {
+    width: 36px;
+    height: 2px;
+    background: linear-gradient(90deg, #b48bd0, #e9c5d8);
+    margin: 10px 0 18px;
+    border-radius: 2px;
+  }
+
+  .quote-block {
+    border-left: 3px solid #d4b8e6;
+    padding-left: 20px;
+  }
+
+  .hero-quote {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif;
+    font-weight: 900;
+    background: linear-gradient(135deg, #7d6496 0%, #b48bd0 45%, #e9c5d8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.08em;
+  }
+
+  /* ========== 首屏三段成长圆环 ========== */
+  .ring-chart {
+    text-align: center;
+  }
+
+  .ring-legend {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #4a4458;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .color-1 { background: #b48bd0; }
+  .color-2 { background: #d4b8e6; }
+  .color-3 { background: #e9c5d8; }
+
+  /* ========== 校园经历 · 人物动画职务墙 ========== */
+  .campus-roles-wall {
+    perspective: 1200px;
+  }
+
+  .role-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 24px;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .role-row.reverse {
+    grid-template-columns: 1fr 110px;
+    transform: translateX(40px);
+  }
+
+  .role-row.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .role-figure {
+    position: relative;
+    width: 110px;
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .figure-body {
+    position: relative;
+    width: 52px;
+    height: 100px;
+    animation: figureBounce 2.6s ease-in-out infinite;
+  }
+
+  .role-row:nth-child(2) .figure-body { animation-delay: 0.2s; }
+  .role-row:nth-child(3) .figure-body { animation-delay: 0.4s; }
+  .role-row:nth-child(4) .figure-body { animation-delay: 0.6s; }
+
+  @keyframes figureBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .figure-body .head {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #ffe0c7;
+    border: 2px solid #f3c39a;
+    box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  .figure-body .body {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 42px;
+    height: 46px;
+    border-radius: 18px 18px 14px 14px;
+    background: #f5f5f7;
+    border: 2px solid #e5e1ea;
+  }
+
+  .figure-body .leg {
+    position: absolute;
+    bottom: -10px;
+    width: 14px;
+    height: 26px;
+    border-radius: 8px;
+    background: #5a4e66;
+    animation: legSwing 1.4s ease-in-out infinite;
+  }
+
+  .figure-body .leg.left { left: 10px; transform-origin: top center; }
+  .figure-body .leg.right { right: 10px; transform-origin: top center; animation-delay: 0.7s; }
+
+  @keyframes legSwing {
+    0%, 100% { transform: rotate(-6deg); }
+    50% { transform: rotate(6deg); }
+  }
+
+  /* 红十字会：红马甲 */
+  .red-cross-figure .body {
+    background: linear-gradient(180deg, #ffd7d7, #ffb3b3);
+    border-color: #ff8080;
+  }
+  .red-vest {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: #e63946;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.35);
+  }
+
+  /* 组织部：只保留五角星 */
+  .league-figure .body {
+    background: linear-gradient(180deg, #d7e7ff, #b8d3ff);
+    border-color: #7aa7ff;
+  }
+  .star-badge {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    background: #4070f4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(64, 112, 244, 0.35);
+  }
+
+  /* 学生会：西装裙 */
+  .union-figure .body {
+    background: linear-gradient(180deg, #e7e4f0, #c7c1dc);
+    border-color: #8f88ad;
+  }
+  .suit-skirt {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(180deg, #555, #333);
+    border-radius: 4px 4px 10px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  /* 文体委员：拿吉他 */
+  .culture-figure .body {
+    background: linear-gradient(180deg, #fff1c7, #ffde7a);
+    border-color: #f2b341;
+  }
+  .casual-top {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 28px;
+    background: #ffd166;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(255, 209, 102, 0.4);
+  }
+  .culture-figure .guitar {
+    position: absolute;
+    top: 40px;
+    right: -28px;
+    font-size: 28px;
+    transform: rotate(-20deg);
+    animation: guitarShake 2s ease-in-out infinite;
+  }
+  @keyframes guitarShake {
+    0%, 100% { transform: rotate(-20deg); }
+    50% { transform: rotate(-14deg); }
+  }
+
+  /* 人物下方浮动标签 */
+  .role-label-float {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 800;
+    color: #7d6496;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 3px 8px;
+    border-radius: 999px;
+    box-shadow: 0 4px 10px rgba(180, 139, 208, 0.25);
+    white-space: nowrap;
+    animation: labelFloat 3s ease-in-out infinite;
+  }
+  @keyframes labelFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-4px); }
+  }
+
+  /* 职务卡片 */
+  .role-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 22px 24px;
+    box-shadow: 0 8px 24px rgba(180, 139, 208, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .role-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(180, 139, 208, 0.18);
+  }
+  .role-stamp {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: rgba(180, 139, 208, 0.22);
+  }
+  .role-title {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #7d6496;
+    margin-bottom: 8px;
+  }
+  .role-desc {
+    font-size: 14px;
+    color: #4a4458;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+  .role-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ========== 纵向项目卡片 ========== */
+  .narrative-project {
+    position: relative;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(180, 139, 208, 0.18);
+  }
+  .narrative-project:last-child { border-bottom: none; }
+
+  .narrative-project .project-index {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: rgba(180, 139, 208, 0.18);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .narrative-project .project-title {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #7d6496;
+    margin-bottom: 10px;
+  }
+
+  .narrative-project .project-sub {
+    font-family: 'Noto Serif SC', serif;
+    color: #b48bd0;
+    margin-bottom: 16px;
+  }
+
+  .narrative-project .project-image {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 14px 34px rgba(180, 139, 208, 0.22);
+    margin-bottom: 20px;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .narrative-project .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+  .narrative-project .project-image:hover img { transform: scale(1.05); }
+
+  .narrative-project p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4a4458;
+  }
+
+  .narrative-project .tag-row {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .narrative-project { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+  .narrative-project.visible { opacity: 1; transform: translateY(0); }
+
+  /* ========== 五瓣花旋转相册 ========== */
+  .flower-wrap {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    margin: 0 auto;
+  }
+  .flower-gallery {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 2s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .petal {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(180, 139, 208, 0.15);
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: center center;
+    background: #f8f1fa;
+  }
+  .petal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 2s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .petal.active {
+    transform: scale(1.35) !important;
+    box-shadow: 0 0 24px 8px rgba(180, 139, 208, 0.45);
+    z-index: 10;
+  }
+  .petal:nth-child(1) { transform: rotate(0deg) translateY(-140px) rotate(0deg); }
+  .petal:nth-child(2) { transform: rotate(72deg) translateY(-140px) rotate(-72deg); }
+  .petal:nth-child(3) { transform: rotate(144deg) translateY(-140px) rotate(-144deg); }
+  .petal:nth-child(4) { transform: rotate(216deg) translateY(-140px) rotate(-216deg); }
+  .petal:nth-child(5) { transform: rotate(288deg) translateY(-140px) rotate(-288deg); }
+
+  /* 移动端适配 */
+  @media (max-width: 640px) {
+    .role-row,
+    .role-row.reverse {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+    }
+    .role-figure { margin-bottom: 6px; }
+    .role-tags { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- 导航 -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 transition-all duration-300">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <div class="title-art text-dark text-lg font-bold">张宇 · Portfolio</div>
+
+    <div class="hidden md:flex gap-7 text-sm">
+      <a href="#home" class="hover:text-primary transition-colors">首页</a>
+      <a href="#about" class="hover:text-primary transition-colors">关于我</a>
+      <a href="#skills" class="hover:text-primary transition-colors">技能</a>
+      <a href="#campus" class="hover:text-primary transition-colors">校园</a>
+      <a href="#projects" class="hover:text-primary transition-colors">项目</a>
+      <a href="#gallery" class="hover:text-primary transition-colors">生活</a>
+      <a href="#contact" class="hover:text-primary transition-colors">联系</a>
+    </div>
+
+    <button id="menuBtn" class="md:hidden text-dark">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobileMenu" class="md:hidden hidden mt-3 bg-white/90 backdrop-blur rounded-xl p-4 mx-6 shadow-sm">
+    <div class="flex flex-col gap-3 text-sm">
+      <a href="#home">首页</a>
+      <a href="#about">关于我</a>
+      <a href="#skills">技能</a>
+      <a href="#campus">校园</a>
+      <a href="#projects">项目</a>
+      <a href="#gallery">生活</a>
+      <a href="#contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero 首屏 -->
+<section id="home" class="min-h-screen flex items-center px-6 md:px-12 pt-20 relative z-10">
+  <div class="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-10 items-center">
+    <div class="fade-in-up">
+      <div class="inline-block px-3 py-1.5 rounded-full bg-light text-primary text-xs mb-4">
+        🎓 首经贸 · 工商管理（国际会计）
+      </div>
+      <h1 class="title-art text-[clamp(38px,6vw,58px)] font-bold text-dark leading-[1.15] mb-3">
+        你好，我是 <span class="text-primary">张宇</span>
+      </h1>
+      <p class="chinese-art text-base text-text/80 mb-4">
+        财务分析 × 数据可视化 × AI效率工具
+      </p>
+      
+      <div class="quote-block mb-6">
+        <p class="quote text-base">用数据表达判断，用专业创造价值。</p>
+      </div>
+
+      <p class="text-sm text-dark/70 mb-7">
+        🌿 INFJ 倡导者｜深度思考者｜严谨执行者
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="#projects" class="btn-primary">📂 查看项目</a>
+        <!-- 👇 简历PDF预留位置：替换为你的简历文件路径 -->
+        <a href="resume.pdf" download="张宇-简历.pdf" class="btn-ghost">📄 下载简历</a>
+      </div>
+    </div>
+
+    <!-- 右侧：三段式成长圆环 -->
+    <div class="flex justify-center fade-in-up">
+      <div class="float">
+        <div class="ring-chart">
+          <svg width="280" height="280" viewBox="0 0 280 280">
+            <!-- 背景圆环 -->
+            <circle cx="140" cy="140" r="100" fill="none" stroke="#f8f1fa" stroke-width="14"/>
+            
+            <!-- 项目经历 40% -->
+            <circle cx="140" cy="140" r="100" fill="none" stroke="#b48bd0" stroke-width="14"
+                    stroke-dasharray="251.3 377" stroke-dashoffset="0" stroke-linecap="round"
+                    transform="rotate(-90 140 140)"/>
+            
+            <!-- 学生工作 35% -->
+            <circle cx="140" cy="140" r="100" fill="none" stroke="#d4b8e6" stroke-width="14"
+                    stroke-dasharray="219.9 408.4" stroke-dashoffset="-251.3" stroke-linecap="round"
+                    transform="rotate(-90 140 140)"/>
+            
+            <!-- AI工具运用 25% -->
+            <circle cx="140" cy="140" r="100" fill="none" stroke="#e9c5d8" stroke-width="14"
+                    stroke-dasharray="157.1 471.2" stroke-dashoffset="-471.2" stroke-linecap="round"
+                    transform="rotate(-90 140 140)"/>
+            
+            <!-- 中心文字 -->
+            <text x="140" y="138" text-anchor="middle" class="title-art" fill="#7d6496" font-size="22" font-weight="700">三维成长</text>
+            <text x="140" y="162" text-anchor="middle" fill="#b48bd0" font-size="12">项目·学生工作·AI</text>
+          </svg>
+
+          <!-- 图例 -->
+          <div class="ring-legend">
+            <div class="legend-item">
+              <span class="legend-dot color-1"></span>
+              <span>项目经历</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot color-2"></span>
+              <span>学生工作</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot color-3"></span>
+              <span>AI工具运用</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 关于我 -->
+<section id="about" class="py-16 px-6 md:px-12 relative z-10">
+  <div class="max-w-5xl mx-auto fade-in-up">
+    <div class="text-center mb-10">
+      <h2 class="section-title">关于我</h2>
+      <p class="chinese-art text-sm text-text/70 mt-4">🌸 在规则里深耕，在边界外探索</p>
+    </div>
+
+    <div class="grid md:grid-cols-5 gap-8 items-center">
+      <!-- 左侧主照片：使用你上传的照片 -->
+      <div class="md:col-span-2 img-card h-[420px]">
+        <img src="about-me.jpg" alt="张宇个人照片" />
+      </div>
+
+      <div class="md:col-span-3 space-y-4">
+        <div class="card p-5">
+          <h3 class="title-art text-base font-bold text-dark mb-1">个人简介</h3>
+          <div class="divider"></div>
+          <p class="text-text/80 text-sm leading-relaxed">
+            首都经济贸易大学工商管理（国际会计）专业在读，GPA 4.23，专业排名前10%。系统学习财务会计、成本会计、审计课程，具备扎实的财报解读、风险识别与商业分析能力。
+          </p>
+        </div>
+
+        <div class="card p-5">
+          <h3 class="title-art text-base font-bold text-dark mb-1">经历亮点</h3>
+          <div class="divider"></div>
+          <ul class="space-y-1.5 text-text/80 text-sm">
+            <li>💼 丰田汽车金融法人业务运营实习</li>
+            <li>📑 独立处理 12000+ 份业务资料</li>
+            <li>🏆 三项市级创新创业竞赛获奖</li>
+            <li>🎯 商业计划书财务模块负责人</li>
+          </ul>
+        </div>
+
+        <div class="card p-5">
+          <h3 class="title-art text-base font-bold text-dark mb-1">🧩 INFJ 性格标签</h3>
+          <div class="divider"></div>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag">深度洞察</span>
+            <span class="tag">全局统筹</span>
+            <span class="tag">严谨细致</span>
+            <span class="tag">共情力强</span>
+            <span class="tag">追求极致</span>
+            <span class="tag">责任驱动</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 大号金句 -->
+<section class="py-20 px-6 md:px-12 relative z-10">
+  <div class="max-w-4xl mx-auto text-center fade-in-up">
+    <p class="hero-quote text-[clamp(28px,5vw,52px)] leading-[1.45]">
+      做正确的事，也正确地做事，让数据成为判断，让专业创造价值。
+    </p>
+  </div>
+</section>
+
+
+
+<!-- 专业技能 -->
+<section id="skills" class="py-16 px-6 md:px-12 relative z-10">
+  <div class="max-w-4xl mx-auto text-center fade-in-up">
+    <h2 class="section-title">专业技能</h2>
+    <p class="chinese-art text-sm text-text/70 mt-4 mb-8">🛠️ 财务、数据与效率工具并行</p>
+
+    <div class="flex flex-wrap gap-2.5 justify-center">
+      <span class="tag tag-appear">📊 会计基础</span>
+      <span class="tag tag-appear">📈 财报分析</span>
+      <span class="tag tag-appear">📑 Excel数据透视</span>
+      <span class="tag tag-appear">📉 Power BI</span>
+      <span class="tag tag-appear">🔍 Stata</span>
+      <span class="tag tag-appear">🌐 商业英语</span>
+      <span class="tag tag-appear">🎨 PPT设计</span>
+      <span class="tag tag-appear">🤖 AI工具应用</span>
+    </div>
+  </div>
+</section>
+
+<!-- 校园经历 · 人物动画职务墙 -->
+<section id="campus" class="py-16 px-6 md:px-12 relative z-10">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12 fade-in-up">
+      <h2 class="section-title">校园经历</h2>
+      <p class="chinese-art text-sm text-text/70 mt-4">🏫 一个人，四种身份，四段成长</p>
+    </div>
+
+    <div class="campus-roles-wall space-y-6">
+      <!-- 职务1：红十字会 -->
+      <div class="role-row">
+        <div class="role-figure">
+          <div class="figure-body red-cross-figure">
+            <div class="head"></div>
+            <div class="body">
+              <div class="red-vest">
+                <span class="heart-hand">❤✋</span>
+              </div>
+            </div>
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+          </div>
+          <div class="role-label-float">红十字会</div>
+        </div>
+
+        <div class="role-card">
+          <div class="role-stamp">01</div>
+          <h3 class="role-title">红十字会 · 副会长</h3>
+          <p class="role-desc">统筹急救讲座、志愿项目与现场执行，负责讲师对接、场地协调与活动落地。</p>
+          <div class="role-tags">
+            <span class="tag">急救培训</span>
+            <span class="tag">志愿项目</span>
+            <span class="tag">现场执行</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 职务2：团委组织部 -->
+      <div class="role-row reverse">
+        <div class="role-card">
+          <div class="role-stamp">02</div>
+          <h3 class="role-title">团委组织部 · 部长</h3>
+          <p class="role-desc">推进团员发展、信息归档与支部主题活动，锻炼任务拆解、组织协调与流程管理能力。</p>
+          <div class="role-tags">
+            <span class="tag">团员发展</span>
+            <span class="tag">信息归档</span>
+            <span class="tag">支部建设</span>
+          </div>
+        </div>
+
+        <div class="role-figure">
+          <div class="figure-body league-figure">
+            <div class="head"></div>
+            <div class="body">
+              <div class="star-badge">★</div>
+            </div>
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+          </div>
+          <div class="role-label-float">组织部</div>
+        </div>
+      </div>
+
+      <!-- 职务3：学生会传媒部 -->
+      <div class="role-row">
+        <div class="role-figure">
+          <div class="figure-body union-figure">
+            <div class="head"></div>
+            <div class="body">
+              <div class="suit-skirt"></div>
+            </div>
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+          </div>
+          <div class="role-label-float">学生会</div>
+        </div>
+
+        <div class="role-card">
+          <div class="role-stamp">03</div>
+          <h3 class="role-title">学生会传媒部</h3>
+          <p class="role-desc">负责公众号推文策划、编辑与排版，完成活动推文输出，提升内容表达与视觉呈现能力。</p>
+          <div class="role-tags">
+            <span class="tag">推文策划</span>
+            <span class="tag">编辑排版</span>
+            <span class="tag">内容传播</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 职务4：班级文体委员 -->
+      <div class="role-row reverse">
+        <div class="role-card">
+          <div class="role-stamp">04</div>
+          <h3 class="role-title">班级文体委员</h3>
+          <p class="role-desc">组织迎新晚会、体测与班级文体活动，协调人员物资，带领班级获得多项校级奖项。</p>
+          <div class="role-tags">
+            <span class="tag">活动组织</span>
+            <span class="tag">文艺表演</span>
+            <span class="tag">班级建设</span>
+          </div>
+        </div>
+
+        <div class="role-figure">
+          <div class="figure-body culture-figure">
+            <div class="head"></div>
+            <div class="body">
+              <div class="casual-top"></div>
+            </div>
+            <div class="guitar">🎸</div>
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+          </div>
+          <div class="role-label-float">文体委员</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 项目经历 · 纵向叙事卡片 -->
+<section id="projects" class="py-16 px-6 md:px-12 relative z-10">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12 fade-in-up">
+      <h2 class="section-title">项目经历</h2>
+      <p class="chinese-art text-sm text-text/70 mt-4">🏆 每一次实践，都是从已知走向未知</p>
+    </div>
+
+    <div class="narrative-project">
+      <div class="project-index">01</div>
+      <h3 class="project-title">丰田汽车金融 · 法人业务运营实习</h3>
+      <p class="project-sub">财务运营 · 风险监控 · 数据处理</p>
+      <div class="project-image h-64 md:h-80">
+        <img src="https://picsum.photos/id/180/1200/600" alt="丰田汽车金融实习" />
+      </div>
+      <p>
+        在丰田汽车金融法人业务运营岗位实习期间，我主要负责合同审核、二手车请款资料审批与月度放款数据统计。这段经历让我第一次近距离接触真实企业的财务流程，也让我意识到：严谨不是形式，而是风险识别的第一道防线。
+      </p>
+      <div class="tag-row">
+        <span class="tag">合同审核</span>
+        <span class="tag">风险监控</span>
+        <span class="tag">Excel统计</span>
+      </div>
+    </div>
+
+    <div class="narrative-project">
+      <div class="project-index">02</div>
+      <h3 class="project-title">大创创新大赛 · 项目组长</h3>
+      <p class="project-sub">商业计划书 · 财务预测 · 风险体系</p>
+      <div class="project-image h-64 md:h-80">
+        <img src="https://picsum.photos/id/48/1200/600" alt="大创创新大赛" />
+      </div>
+      <p>
+        作为项目组长，我统筹了从市场分析到财务模型搭建的完整流程。我负责构建五年期财务预测，设计收入、成本与现金流假设，并建立风险防控体系。这个项目让我学会把创业想法拆成可验证的数据逻辑。
+      </p>
+      <div class="tag-row">
+        <span class="tag">财务预测</span>
+        <span class="tag">商业计划书</span>
+        <span class="tag">风险防控</span>
+      </div>
+    </div>
+
+    <div class="narrative-project">
+      <div class="project-index">03</div>
+      <h3 class="project-title">挑战杯创业大赛 · 核心成员</h3>
+      <p class="project-sub">财务规划 · 资金机制 · 效益测算</p>
+      <div class="project-image h-64 md:h-80">
+        <img src="challenge.jpg" alt="挑战杯创业大赛" />
+      </div>
+      <p>
+        在挑战杯项目中，我担任财务核心成员，重点设计了“以旺养淡”的资金储备机制。通过分阶段测算营收、成本与利润，我把商业故事转化为清晰的财务语言，也帮助团队判断项目是否具备可持续经营能力。
+      </p>
+      <div class="tag-row">
+        <span class="tag">资金规划</span>
+        <span class="tag">效益测算</span>
+        <span class="tag">创业财务</span>
+      </div>
+    </div>
+
+    <div class="narrative-project">
+      <div class="project-index">04</div>
+      <h3 class="project-title">互联网+大赛 · 财务负责人</h3>
+      <p class="project-sub">财务模型 · 现金流表 · 投资评估</p>
+      <div class="project-image h-64 md:h-80">
+        <img src="+.jpg" alt="互联网+大赛" />
+      </div>
+      <p>
+        作为财务负责人，我搭建了分阶段财务评估模型，编制模拟利润表与现金流量表，并完成净现值和投资回收期测算。我开始理解：财务不是后台记录，而是决定项目节奏与资源分配的重要依据。
+      </p>
+      <div class="tag-row">
+        <span class="tag">财务模型</span>
+        <span class="tag">现金流分析</span>
+        <span class="tag">投资评估</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 数据统计 -->
+<section class="py-14 px-6 md:px-12 relative z-10">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="card p-6 text-center fade-in-up">
+        <div class="stat-num" data-count="3">0</div>
+        <div class="text-xs text-text/70 mt-1">🏅 市级奖项</div>
+      </div>
+      <div class="card p-6 text-center fade-in-up">
+        <div class="stat-num" data-count="4">0</div>
+        <div class="text-xs text-text/70 mt-1">🎒 学生组织</div>
+      </div>
+      <div class="card p-6 text-center fade-in-up">
+        <div class="stat-num" data-count="2">0</div>
+        <div class="text-xs text-text/70 mt-1">💼 实习月数</div>
+      </div>
+      <div class="card p-6 text-center fade-in-up">
+        <div class="stat-num" data-count="8">0</div>
+        <div class="text-xs text-text/70 mt-1">🛠️ 专业工具</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 生活剪影 · 五瓣花旋转相册 -->
+<section id="gallery" class="py-16 px-6 md:px-12 relative z-10">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10 fade-in-up">
+      <h2 class="section-title">生活剪影</h2>
+      <p class="chinese-art text-sm text-text/70 mt-4">🌄 认真学习，也认真生活</p>
+    </div>
+
+    <div class="flower-wrap fade-in-up">
+      <div class="flower-gallery">
+        <!-- 花瓣1 ↓↓↓ 替换src -->
+        <div class="petal active">
+          <img src="life1.jpg" alt="生活照1" />
+        </div>
+        <!-- 花瓣2 ↓↓↓ 替换src -->
+        <div class="petal">
+          <img src="life2.jpg" alt="生活照2" />
+        </div>
+        <!-- 花瓣3 ↓↓↓ 替换src -->
+        <div class="petal">
+          <img src="life3.jpg" alt="生活照3" />
+        </div>
+        <!-- 花瓣4 ↓↓↓ 替换src -->
+        <div class="petal">
+          <img src="life4.jpg" alt="生活照4" />
+        </div>
+        <!-- 花瓣5 ↓↓↓ 替换src -->
+        <div class="petal">
+          <img src="life5.jpg" alt="生活照5" />
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-text/60 text-xs mt-10 chinese-art">
+      登山看日出 · 湖边吹风 · 城市漫步 🌿
+    </p>
+  </div>
+</section>
+
+<!-- 结尾金句 -->
+<section class="py-16 px-6 md:px-12 relative z-10">
+  <div class="max-w-2xl mx-auto text-center fade-in-up">
+    <p class="quote text-2xl mb-4">“ 最好的预测未来的方式，</p>
+    <p class="quote text-2xl mb-6">就是亲手去创造它。 ”</p>
+    <p class="text-text/60 text-sm">保持严谨，保持好奇，保持长期主义。</p>
+  </div>
+</section>
+
+<!-- 联系 -->
+<section id="contact" class="py-16 px-6 md:px-12 relative z-10">
+  <div class="max-w-2xl mx-auto text-center fade-in-up">
+    <h2 class="section-title">联系我</h2>
+    <p class="chinese-art text-sm text-text/70 mt-4 mb-6">📮 欢迎交流财务分析、数据可视化与创新创业</p>
+    
+    <div class="space-y-3 mb-8">
+      <p class="text-lg text-dark font-medium">📧 zyyyqx06060900112@qq.com</p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="mailto:zyyyqx06060900112@qq.com" class="btn-primary">发送邮件</a>
+      <a href="#" class="btn-ghost">💻 GitHub</a>
+      <a href="#" class="btn-ghost">💼 LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // ========== 鼠标跟随光斑 ==========
+  const glow = document.getElementById('cursorGlow');
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+
+  // ========== 导航滚动变色 ==========
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('bg-white/80', 'backdrop-blur-md', 'shadow-sm');
+    } else {
+      navbar.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow-sm');
+    }
+  });
+
+  // ========== 移动端菜单 ==========
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  });
+
+  // ========== 滚动淡入动画 ==========
+  const fadeElements = document.querySelectorAll('.fade-in-up');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  fadeElements.forEach(el => fadeObserver.observe(el));
+
+  // ========== 纵向项目卡片叙事动画 ==========
+  const narrativeProjects = document.querySelectorAll('.narrative-project');
+  const narrativeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 260);
+      }
+    });
+  }, { threshold: 0.12 });
+  narrativeProjects.forEach(p => narrativeObserver.observe(p));
+
+  // ========== 技能标签依次出现 ==========
+  const tags = document.querySelectorAll('.tag-appear');
+  const tagObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tags.forEach((tag, i) => {
+          setTimeout(() => tag.classList.add('visible'), i * 100);
+        });
+        tagObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  if (tags.length) tagObserver.observe(tags[0].parentElement);
+
+  // ========== 数字滚动动画 ==========
+  const counters = document.querySelectorAll('[data-count]');
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = parseInt(entry.target.getAttribute('data-count'));
+        let current = 0;
+        const step = target / 45;
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            entry.target.textContent = target + '+';
+            clearInterval(timer);
+          } else {
+            entry.target.textContent = Math.floor(current);
+          }
+        }, 28);
+        countObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => countObserver.observe(c));
+
+  // ========== 五瓣花旋转逻辑 ==========
+  const flowerGallery = document.querySelector('.flower-gallery');
+  const petals = document.querySelectorAll('.petal');
+  const petalImgs = document.querySelectorAll('.petal img');
+  let currentPetal = 0;
+  const totalPetals = petals.length;
+  const rotateTime = 2000;
+  const stayTime = 3000;
+
+  function rotateToNext() {
+    petals[currentPetal].classList.remove('active');
+    currentPetal = (currentPetal + 1) % totalPetals;
+    const angle = currentPetal * 72;
+
+    flowerGallery.style.transform = `rotate(${angle}deg)`;
+    petalImgs.forEach(img => {
+      img.style.transform = `rotate(-${angle}deg)`;
+    });
+
+    setTimeout(() => {
+      petals[currentPetal].classList.add('active');
+      setTimeout(rotateToNext, stayTime);
+    }, rotateTime);
+  }
+
+  setTimeout(rotateToNext, stayTime);
+
+  // ========== 校园经历 · 人物职务依次滑入 ==========
+  const roleRows = document.querySelectorAll('.role-row');
+  const roleObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 220);
+        roleObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  roleRows.forEach(row => roleObserver.observe(row));
+</script>
+
+</body>
+</html>
